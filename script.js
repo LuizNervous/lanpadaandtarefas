@@ -8,7 +8,7 @@ document.querySelector("#off").addEventListener("click", () => {
 });
 
 
-
+let tarefas = []
 document.querySelector("#botao").addEventListener("click", () => {
   let input = document.getElementById("input");
   value = input.value;
@@ -18,14 +18,20 @@ document.querySelector("#botao").addEventListener("click", () => {
     return;
   }
   mensagem.textContent = "Comentario adicionado!";
-
-  let Paitarefas= document.getElementById("paidosli");
-  let tarefa = document.createElement("li");
-
-  Paitarefas.appendChild(tarefa);
-  tarefa.textContent = value;
-
+  tarefas.push(value)
+  renderizarli()
 
   input.value = "";
 })
+
+function renderizarli() {
+  let Paitarefas = document.getElementById("paidosli");
+  Paitarefas.innerHTML = "";
+
+  for (let i = 0; i < tarefas.length; i++) {
+    let tarefa = document.createElement("li");
+    tarefa.textContent = tarefas[i];
+    Paitarefas.appendChild(tarefa);
+  }
+}
 
