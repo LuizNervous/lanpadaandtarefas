@@ -1,0 +1,11 @@
+.lapanda{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 200px;
+}
