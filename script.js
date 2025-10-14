@@ -1,10 +1,20 @@
 document.querySelector("#on").addEventListener("click", () => {
-  document.getElementById("imagem").src = "imagens/lapon.png";
-
+  const img =document.getElementById("imagem")
+if (img.src.includes("imagens/lapon.png")) {
+  alert("a lampada ja esta acessa")
+}else{
+  img.src = "imagens/lapon.png";
+}
 });
 
+
 document.querySelector("#off").addEventListener("click", () => {
-  document.getElementById("imagem").src = "imagens/lapoff.png";
+  const img =document.getElementById("imagem")
+  if(img.src.includes("imagens/lapoff.png")){
+    alert("a lampada ja esta apagada")
+  }else{
+    img.src="imagens/lapoff.png";
+  }
 });
 
 
@@ -35,3 +45,14 @@ function renderizarli() {
   }
 }
 
+const nome = document.querySelector("#buu");
+const secretImg = document.querySelector("#secret");
+const secretBtn = document.querySelector(".secret");
+let ameaca=document.getElementById("odio");
+secretBtn.addEventListener( "click", ()=>{
+  secretImg.src="imagens/image.png";
+  secretImg.classList.add("show");
+  document.body.classList.add("olavo-mode");
+  nome.textContent="Site do Olavo";
+  ameaca.textContent="Agora vc vai Morre, por ter visto esta atrocidade! Muehehehhehehehaaaaaaaaaaaaaaaaaaaaaau";
+})
