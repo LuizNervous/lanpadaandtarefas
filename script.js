@@ -44,7 +44,7 @@ function renderizarli() {
     Paitarefas.appendChild(tarefa);
   }
 }
-
+const titulosite = document.querySelector("#titulo")
 const nome = document.querySelector("#buu");
 const secretImg = document.querySelector("#secret");
 const secretBtn = document.querySelector(".secret");
@@ -53,6 +53,7 @@ secretBtn.addEventListener( "click", ()=>{
   secretImg.src="imagens/image.png";
   secretImg.classList.add("show");
   document.body.classList.add("olavo-mode");
+  titulosite.textContent="Seriedade";
   nome.textContent="Site do Olavo";
   ameaca.textContent="Agora vc vai Morre, por ter visto esta atrocidade! Muehehehhehehehaaaaaaaaaaaaaaaaaaaaaau";
 })

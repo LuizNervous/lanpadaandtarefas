@@ -6,6 +6,10 @@ html{
   scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
 }
+body{
+  background-color: white;
+  transition: background-image 1s ease-in-out, background-color 1s ease-in-out;
+}
 header{
   background: linear-gradient(to right, rgb(0, 140, 255),cyan, rgb(45, 245, 45));
   display: flex;
@@ -13,7 +17,9 @@ header{
   justify-content: center;
   align-items: center;
 }
-
+.lapanda img {
+  width: 200px;
+}
 .lapanda{
   display: flex;
   justify-content: center;
@@ -56,21 +62,47 @@ footer{
 span{
   font-size: 0.1%;
 }
-#secret {
-  display: none;
-}
-#secret.show{
-  display: block;
-  width: 60%;      
-  position: relative; 
-  z-index: 10; 
-}
-body.olavo-mode{
-    background-image: url("imagens/olavo.png" );
-    color: rgb(255, 0, 0);
-   
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("imagens/olavo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
+body.olavo-mode::before {
+  opacity: 1;
+}
+
+#secret {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-in-out, visibility 0s linear 0.6s;
+  width: 60%;
+  position: relative;
+  z-index: 10;
+}
+#secret.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease-in-out;
+  transition-delay: 0s;
+}.olavo-mode{
+    background-image: url("imagens/olavo.png" );
+    color: rgb(255, 0, 0);
+    background-size: cover;       /* Faz a imagem cobrir toda a tela */
+    background-repeat: no-repeat; /* Evita que a imagem se repita */
+    background-position: center; 
+   
+}
+body.olavo-mode header{
+  background: linear-gradient(to right, rgb(255, 8, 0),rgb(110, 31, 20), rgb(17, 4, 4));
+}
 .center{
   display: flex;
   justify-content: center;
